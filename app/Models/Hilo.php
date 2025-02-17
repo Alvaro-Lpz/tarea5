@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Hilo extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['titulo', 'contenido'];
     
     public function posts()
     {

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Hilo;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'contenido' => $this->faker->paragraphs(3, true),
+            'fecha_publicacion' => now(),
+            'user_id' => User::inRandomOrder()->first()->id ?? User::factory()->create()->id,
+            'hilo_id' => Hilo::inRandomOrder()->first()->id ?? Hilo::factory()->create()->id,
         ];
     }
 }

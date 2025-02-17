@@ -17,7 +17,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->name(),
+            'correo' => $this->faker->unique()->safeEmail(),
+            'ruta_imagen' => $this->faker->imageUrl(200, 200),
+            'contrasena' => bcrypt('password'),
+            'rol' => $this->faker->randomElement(['usuario', 'admin']),
         ];
     }
 }
