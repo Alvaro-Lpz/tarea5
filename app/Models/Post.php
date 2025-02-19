@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['contenido', 'fecha_publicacion'];
+    protected $fillable = ['contenido', 'fecha_publicacion', 'user_id'];
     
     public function hilos()
     {

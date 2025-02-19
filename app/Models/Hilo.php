@@ -9,7 +9,7 @@ class Hilo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'contenido'];
+    protected $fillable = ['titulo', 'contenido', 'user_id'];
     
     public function posts()
     {

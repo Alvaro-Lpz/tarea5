@@ -18,10 +18,10 @@ class UserFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name(),
-            'correo' => $this->faker->unique()->safeEmail(),
+            'email' => $this->faker->unique()->safeEmail(),
             'ruta_imagen' => $this->faker->imageUrl(200, 200),
-            'contrasena' => bcrypt('password'),
-            'rol' => $this->faker->randomElement(['usuario', 'admin']),
+            'password' => bcrypt('password'),
+            'rol' => $this->faker->randomElement(['usuario', 'editor', 'admin']),
         ];
     }
 }
