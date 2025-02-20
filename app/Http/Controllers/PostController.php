@@ -33,4 +33,10 @@ class PostController extends Controller
         $post->likes()->firstOrCreate(['user_id' => Auth::id()]);
         return back();
     }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect()->route('hilos.principal')->with('success', 'Post eliminado correctamente.');
+    }
 }

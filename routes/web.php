@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
     // Dar "me gusta" a un post
     Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
 Route::middleware(AdminMiddleware::class)->group(function () {
