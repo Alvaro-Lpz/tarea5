@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\HiloController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RankingController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,8 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/admin/users/{user}/edit', [AdminUserController::class, 'edit'])->name('admin.edit');
     Route::patch('/admin/users/{user}', [AdminUserController::class, 'update'])->name('admin.update');
 });
+
+Route::get('/ranking', [RankingController::class, 'index'])->name('ranking.index');
 
 Route::get('/test', function () {
     return "Ruta de prueba funcionando";

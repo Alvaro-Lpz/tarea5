@@ -18,6 +18,10 @@
                 </div>
             </div>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('ranking.index') }}">Ranking</a>
+            </li>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 @if (Auth::check() && Auth::user()->rol === 'admin')
