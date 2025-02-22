@@ -16,7 +16,7 @@ class HiloController extends Controller
 
     public function create()
     {
-        dd('Entrando al método create');
+        // dd('Entrando al método create');
         return view('hilos.create');
     }
 
@@ -39,6 +39,6 @@ class HiloController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->route('hilos.index');
+        return redirect()->route('hilos.principal');
     }
 }

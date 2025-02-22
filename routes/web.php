@@ -23,20 +23,21 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/hilos/create', [HiloController::class, 'create'])->name('hilos.create');
-    Route::post('/hilos', [HiloController::class, 'store'])->name('hilos.store');
+    Route::get('/algo', [HiloController::class, 'create'])->name('hilos.create');
+    Route::post('/hilos/create/guardar', [HiloController::class, 'store'])->name('hilos.store');
 
     // Añadir un post a un hilo
     Route::post('/hilos/{hilo}/posts', [PostController::class, 'store'])->name('posts.store');
 
     // Dar "me gusta" a un post
     Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
-    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
 Route::middleware(AdminMiddleware::class)->group(function () {
@@ -44,6 +45,7 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('admin.destroy');
     Route::get('/admin/users/{user}/edit', [AdminUserController::class, 'edit'])->name('admin.edit');
     Route::patch('/admin/users/{user}', [AdminUserController::class, 'update'])->name('admin.update');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
 Route::get('/ranking', [RankingController::class, 'index'])->name('ranking.index');
@@ -52,4 +54,4 @@ Route::get('/test', function () {
     return "Ruta de prueba funcionando";
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

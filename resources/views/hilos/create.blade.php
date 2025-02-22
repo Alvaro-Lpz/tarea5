@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 <form action="{{ route('hilos.store') }}" method="POST">
     @csrf
     <input type="text" name="titulo" placeholder="Título" required>
