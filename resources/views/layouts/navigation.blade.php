@@ -19,6 +19,8 @@
             </div>
 
             <div class="hidden sm:flex items-center space-x-6">
+
+                <a href="{{route('welcome')}}">Página principal</a>
                 
                 <x-nav-link :href="route('ranking.index')" class="text-lg font-semibold text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">
                     {{ __('Ranking') }}

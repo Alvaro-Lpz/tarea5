@@ -25,9 +25,9 @@ class AdminMiddleware
                 abort(403, 'No tienes permisos para eliminar usuarios.');
             }
     
-            // if ($request->isMethod('patch') && $request->has('rol')) {
-            //     abort(403, 'No tienes permisos para editar roles.');
-            // }
+            if ($request->isMethod('patch') && $request->has('rol')) {
+                abort(403, 'No tienes permisos para editar roles.');
+            }
     
             return $next($request);
         }
