@@ -8,12 +8,14 @@ use App\Http\Controllers\RankingController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [HiloController::class, 'index'])->name('welcome');
+
 
 // Página principal con todos los hilos
-Route::get('/principal', [HiloController::class, 'index'])->name('hilos.principal');
+// Route::get('/principal', [HiloController::class, 'index'])->name('hilos.principal');
 
 // Ver un hilo con todos sus posts
 Route::get('/hilos/{hilo}', [HiloController::class, 'show'])->name('hilos.show');

@@ -11,7 +11,7 @@ class HiloController extends Controller
     public function index()
     {
         $hilos = Hilo::with('user')->latest()->get(); // Obtiene los hilos con el usuario creador
-        return view('hilos.principal', compact('hilos'));
+        return view('welcome', compact('hilos'));
     }
 
     public function create()
@@ -39,6 +39,6 @@ class HiloController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->route('hilos.principal');
+        return redirect()->route('welcome');
     }
 }

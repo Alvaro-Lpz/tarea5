@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $rutaImagen = 'default.png'; // Imagen por defecto
+        $rutaImagen = 'default.png';
         if ($request->hasFile('ruta_imagen')) {
             $rutaImagen = $request->file('ruta_imagen')->store('perfil', 'public');
         }

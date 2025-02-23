@@ -24,7 +24,7 @@ class AdminUserController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'rol' => 'required|in:admin,usuario',
+            'rol' => 'required|string|max:255',
         ]);
 
         if (Auth::user()->rol !== 'admin') {
