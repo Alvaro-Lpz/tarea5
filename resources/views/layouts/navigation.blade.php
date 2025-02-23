@@ -22,9 +22,9 @@
                 <a class="nav-link" href="{{ route('ranking.index') }}">Ranking</a>
             </li>
 
-            <!-- Settings Dropdown -->
+            <!-- Settings Dropdown AQUI MODIFICAR LO DE EDITOR \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\--> 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                @if (Auth::check() && Auth::user()->rol === 'admin')
+                @if (Auth::check() && Auth::user()->rol === 'admin' || Auth::user()->rol === 'editor')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
                             {{ __('Gestionar Usuarios') }}

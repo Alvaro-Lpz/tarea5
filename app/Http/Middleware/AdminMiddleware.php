@@ -19,6 +19,18 @@ class AdminMiddleware
         if (Auth::check() && Auth::user()->rol === 'admin') {
             return $next($request);
         }
+
+        if (Auth::check() && Auth::user()->rol === 'editor') {
+            if ($request->isMethod('delete') || $request->routeIs('admin.destroy')) {
+                abort(403, 'No tienes permisos para eliminar usuarios.');
+            }
+    
+            // if ($request->isMethod('patch') && $request->has('rol')) {
+            //     abort(403, 'No tienes permisos para editar roles.');
+            // }
+    
+            return $next($request);
+        }
     
         abort(403, 'Acceso no autorizado');
     }

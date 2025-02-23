@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -25,6 +26,10 @@ class AdminUserController extends Controller
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
             'rol' => 'required|in:admin,usuario',
         ]);
+
+        if (Auth::user()->rol !== 'admin') {
+            unset($request['rol']);
+        }
 
         $user->update($request->only('nombre', 'email', 'rol'));
 
